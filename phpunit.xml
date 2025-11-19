@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         cacheDirectory=".phpunit.cache"
+         testdox="true">
+    <testsuites>
+        <testsuite name="WhatsApp Module Test Suite">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>./src</directory>
+        </include>
+    </source>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="WHATSAPP_BASE_URL" value="https://wa.ezlearn.store"/>
+        <env name="WHATSAPP_API_KEY" value="DaK0iYjrIceZqGqP34daEzKtiJsF8K"/>
+        <env name="WHATSAPP_DEFAULT_SENDER" value="989053556328"/>
+    </php>
+</phpunit>
+

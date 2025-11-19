@@ -1,0 +1,43 @@
+# WhatsApp Module for Laravel - Project Intelligence
+
+## Project Overview
+این پروژه یک ماژول کامپوزر برای لاراول است که امکان ارسال پیام واتساپ را فراهم می‌کند.
+
+## Key Patterns
+- استفاده از ساختار استاندارد Laravel Package
+- Service Provider برای ثبت سرویس‌ها به صورت Singleton
+- Facade برای دسترسی آسان به قابلیت‌ها
+- مدیریت URL و API Key به صورت سراسری از طریق Config
+- استفاده از متغیرهای محیطی (.env) برای تنظیمات
+
+## API Details
+- **Base URL**: https://wa.ezlearn.store
+- **Send Message Endpoint**: /send-message
+- **Send Media Endpoint**: /send-media
+- **Method**: POST | GET
+- **Required Parameters for Message**: api_key, sender, number, message
+- **Required Parameters for Media**: api_key, sender, number, media_type, url
+- **Media Types**: image, video, audio, document
+- **Important**: شماره‌ها (sender و number) باید همیشه با کد کشور باشند
+
+## Development Guidelines
+- تمام کدها باید به فارسی کامنت شوند
+- استفاده از PSR-12 برای استاندارد کد
+- مستندات کامل برای استفاده
+- مدیریت خطا با WhatsAppException
+- استفاده از Illuminate\Http\Facades\Http برای درخواست‌ها
+
+## Structure
+- `src/Services/WhatsAppService.php`: کلاس اصلی سرویس
+  - `sendMessage()`: ارسال پیام متنی
+  - `sendMedia()`: ارسال رسانه (image, video, audio, document)
+  - `validatePhoneNumber()`: اعتبارسنجی شماره با کد کشور
+- `src/Facades/WhatsApp.php`: Facade برای دسترسی آسان
+- `src/WhatsAppModuleServiceProvider.php`: Service Provider
+- `src/Http/Controllers/WhatsAppController.php`: Controller برای API endpoints
+  - `sendMessage()`: endpoint برای ارسال پیام متنی
+  - `sendMedia()`: endpoint برای ارسال رسانه
+- `src/Exceptions/WhatsAppException.php`: استثنای اختصاصی
+- `config/whatsapp.php`: فایل تنظیمات
+- `routes/api.php`: مسیرهای API
+
